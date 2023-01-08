@@ -45,5 +45,5 @@
 
     - name: check permission docker socket
       ansible.builtin.file:
-        path: " /var/run/docker.sock"
+        dest: " /var/run/docker.sock"
         mode: '666'
