@@ -43,6 +43,11 @@
         dest: /usr/local/bin/docker-compose
         mode: 'u+x,g+x'
 
-    - name: check permission docker socket
+    - name: c^change permission docker socket
       ansible.builtin.shell:
         cmd: "sudo chmod 666 /var/run/docker.sock"
+        
+    - name: add user to docker group
+      ansible.builtin.shell:
+        cmd: "sudo usermod -aG docker ${USER}"
+  
